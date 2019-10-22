@@ -62,12 +62,12 @@ def string_repeat(phrase, repeat):
         concat = concat + phrase
     return concat
 
-# def main():
- #   test = string_repeat("Test", 3)
-  #  print(test)
-   # print(is_even(4))
-    #print(is_even(5))
-#
+""" def main():
+    test = string_repeat("Test", 3)
+    print(test)
+    print(is_even(4))
+    print(is_even(5))
 
-# if __name__ == "__main__":
-#    main() 
+
+if __name__ == "__main__":
+    main() """
