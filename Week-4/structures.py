@@ -9,7 +9,8 @@ Simple functions performing operations on basic Python data structures.
 # write a function that returns a list containing the first and the last element
 # of "the_list". 
 def first_and_last(the_list):
-    new_list = the_list[0]
+    new_list = list()
+    new_list.append(the_list[0])
     new_list.append(the_list[-1])
     return new_list
 
@@ -20,9 +21,15 @@ def first_and_last(the_list):
 # If "end" is greater then "beginning" or any og the indices is out of the
 # list, raise a "ValueError" exception. 
 def part_reverse(the_list, beginning, end):
-    if (end > beginning) or (beginning < 0) or (end > the_list.count):
+    the_list = [1, 2, 3, 4, 5]
+    beginning = 1
+    end = 4
+    end_of_list = len(the_list)
+    if (end < beginning) or (beginning < 0) or (end > end_of_list):  
         raise ValueError
-    new_list = the_list[end, beginning]
+    else: 
+        new_list = the_list[beginning: end]
+        new_list = new_list.reverse()
     return new_list
 
 
@@ -41,6 +48,8 @@ def repeat_at_index(the_list, index):
 # write a function that checks whether the word is a palindrome, i.e. it reads
 # the same forward and backwards
 def palindrome_word(word):
+    palindrome_test = ""
+    word = word.lower()
     for letter in word:
         palindrome_test = letter + palindrome_test 
     return palindrome_test == word
@@ -51,6 +60,8 @@ def palindrome_word(word):
 # capital or not. 
 def palindrome_sentence(sentence):
     sentence = sentence.lower()
+    new_sentence = ""
+    palindromic_sentence = ""
     for letter in sentence:
         if ord(letter) <= 120 and ord(letter) >= 97:
             new_sentence = new_sentence + letter
@@ -69,7 +80,7 @@ def concatenate_sentences(sentence1, sentence2):
     sentence2 = sentence2.strip()
     if sentence1[0].isupper() and sentence2[0].isupper():
         if (sentence1[-1] == "." or sentence1[-1] == "?" or sentence1[-1] == "!") and (sentence2[-1] == "." or sentence2[-1] == "?" or sentence2[-1] == "!"):
-            new_sentence = sentence1 + sentence2
+            new_sentence = sentence1 + " " + sentence2
         else: raise ValueError
     else: raise ValueError       
     return new_sentence
@@ -94,4 +105,14 @@ def value_exists(dictionary, value):
 # write a function that returns a new dictionary which contains all the values
 # from dictionary1 and dictionary2.
 def merge_dictionaries(dictionary1, dictionary2):
-    return dictionary1.update(dictionary2)
+    dictionary1.update(dictionary2)
+    return dictionary1
+
+"""
+def main():
+    print(palindrome_word("test"))
+    print(palindrome_word("hannah"))
+
+if __name__ == "__main__":
+    main() 
+"""
